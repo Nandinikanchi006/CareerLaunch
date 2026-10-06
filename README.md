@@ -124,7 +124,8 @@ The platform is designed to make career planning simpler, more organized, and ac
 
 ## 📸 Project Preview
 
-*Add screenshots of the CareerLaunch interface here as the project develops.*
+*We can explore it in the below:*
+project link=[https://nandinikanchi006.github.io/CareerLaunch/]
 
 ## 👩‍💻 Developer
 

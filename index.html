@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerLaunch</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            🚀 <span>CareerLaunch</span>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search careers, skills, jobs..."
+            >
+            🔍
+        </div>
+
+        <div class="profile">
+            <span>🔔</span>
+            <div class="avatar">👩🏻</div>
+
+            <div>
+                <strong>Nandhini K</strong>
+                <small>Student</small>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="menu">
+
+                <button class="menu-item active" onclick="showPage('dashboard', this)">
+                    🏠 Dashboard
+                </button>
+
+                <button class="menu-item" onclick="showPage('careers', this)">
+                    🔎 Career Explorer
+                </button>
+
+                <button class="menu-item" onclick="showPage('assessment', this)">
+                    📝 Skill Assessment
+                </button>
+
+                <button class="menu-item" onclick="showPage('gap', this)">
+                    📊 Skill Gap
+                </button>
+
+                <button class="menu-item" onclick="showPage('learning', this)">
+                    📚 Learning Path
+                </button>
+
+                <button class="menu-item" onclick="showPage('internships', this)">
+                    💼 Internships
+                </button>
+
+                <button class="menu-item" onclick="showPage('jobs', this)">
+                    🏢 Jobs
+                </button>
+
+                <button class="menu-item" onclick="showPage('resume', this)">
+                    📄 Resume Builder
+                </button>
+
+                <button class="menu-item" onclick="showPage('mentorship', this)">
+                    👥 Mentorship
+                </button>
+
+            </div>
+
+            <button class="logout">
+                🚪 Logout
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENT -->
+        <main class="content">
+
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="page active-page">
+
+                <div class="welcome">
+
+                    <div>
+                        <p class="small-title">WELCOME BACK 👋</p>
+
+                        <h1>
+                            Build your career with
+                            <span>CareerLaunch</span>
+                        </h1>
+
+                        <p>
+                            Discover your ideal career, identify skill gaps,
+                            build your resume and find opportunities.
+                        </p>
+
+                        <button
+                            class="primary-btn"
+                            onclick="showPage('careers')"
+                        >
+                            Explore Careers →
+                        </button>
+                    </div>
+
+                    <div class="hero-icon">
+                        🚀
+                    </div>
+
+                </div>
+
+
+                <h2>Career Progress</h2>
+
+                <div class="stats">
+
+                    <div class="stat-card">
+                        <span>🎯</span>
+                        <h3>72%</h3>
+                        <p>Career Match</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>📚</span>
+                        <h3>12</h3>
+                        <p>Learning Streak</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>🏆</span>
+                        <h3>8</h3>
+                        <p>Skills Completed</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>💼</span>
+                        <h3>24</h3>
+                        <p>Jobs Matched</p>
+                    </div>
+
+                </div>
+
+
+                <h2>Quick Actions</h2>
+
+                <div class="quick-grid">
+
+                    <div class="quick-card"
+                         onclick="showPage('assessment')">
+                        📝
+                        <h3>Take Skill Assessment</h3>
+                        <p>Know your current skill level.</p>
+                    </div>
+
+                    <div class="quick-card"
+                         onclick="showPage('gap')">
+                        📊
+                        <h3>Analyze Skill Gap</h3>
+                        <p>Discover what you need to learn.</p>
+                    </div>
+
+                    <div class="quick-card"
+                         onclick="showPage('resume')">
+                        📄
+                        <h3>Build Resume</h3>
+                        <p>Create a professional resume.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CAREER EXPLORER -->
+            <section id="careers" class="page">
+
+                <div class="page-title">
+
+                    <h1>Career Explorer</h1>
+
+                    <p>
+                        Find a career that matches your interests and skills.
+                    </p>
+
+                </div>
+
+
+                <input
+                    class="page-search"
+                    id="careerSearch"
+                    placeholder="Search careers..."
+                    oninput="searchCareers()"
+                >
+
+
+                <div class="career-grid" id="careerContainer">
+
+                </div>
+
+            </section>
+
+
+            <!-- SKILL ASSESSMENT -->
+            <section id="assessment" class="page">
+
+                <div class="page-title">
+
+                    <h1>Skill Assessment</h1>
+
+                    <p>
+                        Rate your current skills from 0 to 100.
+                    </p>
+
+                </div>
+
+
+                <div class="assessment-card">
+
+                    <label>Python</label>
+                    <input
+                        type="range"
+                        id="python"
+                        min="0"
+                        max="100"
+                        value="80"
+                    >
+                    <span id="pythonValue">80</span>
+
+
+                    <label>JavaScript</label>
+                    <input
+                        type="range"
+                        id="javascript"
+                        min="0"
+                        max="100"
+                        value="60"
+                    >
+                    <span id="javascriptValue">60</span>
+
+
+                    <label>SQL</label>
+                    <input
+                        type="range"
+                        id="sql"
+                        min="0"
+                        max="100"
+                        value="50"
+                    >
+                    <span id="sqlValue">50</span>
+
+
+                    <label>HTML/CSS</label>
+                    <input
+                        type="range"
+                        id="htmlcss"
+                        min="0"
+                        max="100"
+                        value="90"
+                    >
+                    <span id="htmlcssValue">90</span>
+
+
+                    <button
+                        class="primary-btn"
+                        onclick="calculateScore()"
+                    >
+                        Calculate My Score
+                    </button>
+
+
+                    <div
+                        id="scoreResult"
+                        class="score-result"
+                    >
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SKILL GAP -->
+            <section id="gap" class="page">
+
+                <div class="page-title">
+
+                    <h1>Skill Gap Analysis</h1>
+
+                    <p>
+                        See which skills you need to improve for your target career.
+                    </p>
+
+                </div>
+
+
+                <div class="target-career">
+
+                    <div>
+                        <small>Target Career</small>
+                        <h2>Software Engineer</h2>
+                    </div>
+
+                    <div class="match-circle">
+                        72%
+                    </div>
+
+                </div>
+
+
+                <div class="skill-list">
+
+                    <div class="skill-row">
+                        <span>Python</span>
+                        <div class="progress">
+                            <div style="width:90%"></div>
+                        </div>
+                        <strong>90%</strong>
+                        <span class="good">Strong</span>
+                    </div>
+
+
+                    <div class="skill-row">
+                        <span>JavaScript</span>
+                        <div class="progress">
+                            <div style="width:60%"></div>
+                        </div>
+                        <strong>60%</strong>
+                        <span class="average">Average</span>
+                    </div>
+
+
+                    <div class="skill-row">
+                        <span>React</span>
+                        <div class="progress">
+                            <div class="weak-progress"
+                                 style="width:30%">
+                            </div>
+                        </div>
+                        <strong>30%</strong>
+                        <span class="weak">Weak</span>
+                    </div>
+
+
+                    <div class="skill-row">
+                        <span>SQL</span>
+                        <div class="progress">
+                            <div style="width:55%"></div>
+                        </div>
+                        <strong>55%</strong>
+                        <span class="average">Average</span>
+                    </div>
+
+                </div>
+
+
+                <div class="recommendation">
+
+                    ⭐
+
+                    <div>
+
+                        <strong>Recommended Action</strong>
+
+                        <p>
+                            Focus on React, JavaScript and SQL
+                            to improve your career match.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEARNING PATH -->
+            <section id="learning" class="page">
+
+                <div class="page-title">
+
+                    <h1>Learning Path</h1>
+
+                    <p>Your personalized roadmap to become a Software Engineer.</p>
+
+                </div>
+
+
+                <div class="roadmap">
+
+                    <div class="road">
+                        <span>1</span>
+                        <h3>HTML & CSS</h3>
+                        <p>Build modern web interfaces.</p>
+                        <b>Completed ✓</b>
+                    </div>
+
+                    <div class="road">
+                        <span>2</span>
+                        <h3>JavaScript</h3>
+                        <p>Learn programming and web interactions.</p>
+                        <b>In Progress</b>
+                    </div>
+
+                    <div class="road">
+                        <span>3</span>
+                        <h3>React</h3>
+                        <p>Build modern frontend applications.</p>
+                        <b>Upcoming</b>
+                    </div>
+
+                    <div class="road">
+                        <span>4</span>
+                        <h3>Node.js</h3>
+                        <p>Build backend applications.</p>
+                        <b>Upcoming</b>
+                    </div>
+
+                    <div class="road">
+                        <span>5</span>
+                        <h3>Projects</h3>
+                        <p>Build real-world projects for your portfolio.</p>
+                        <b>Upcoming</b>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- INTERNSHIPS -->
+            <section id="internships" class="page">
+
+                <div class="page-title">
+
+                    <h1>Internships</h1>
+
+                    <p>Find opportunities that match your skills.</p>
+
+                </div>
+
+
+                <div class="opportunity-grid">
+
+                    <div class="opportunity">
+                        <span class="tag">Remote</span>
+
+                        <h2>Software Development Intern</h2>
+
+                        <p>TechNova</p>
+
+                        <p>💰 ₹15,000/month</p>
+
+                        <button>Apply Now</button>
+                    </div>
+
+
+                    <div class="opportunity">
+
+                        <span class="tag">Hybrid</span>
+
+                        <h2>Data Science Intern</h2>
+
+                        <p>DataWorks</p>
+
+                        <p>💰 ₹20,000/month</p>
+
+                        <button>Apply Now</button>
+
+                    </div>
+
+
+                    <div class="opportunity">
+
+                        <span class="tag">Remote</span>
+
+                        <h2>AI/ML Intern</h2>
+
+                        <p>AI Labs</p>
+
+                        <p>💰 ₹18,000/month</p>
+
+                        <button>Apply Now</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- JOBS -->
+            <section id="jobs" class="page">
+
+                <div class="page-title">
+
+                    <h1>Jobs</h1>
+
+                    <p>Explore jobs matching your career goals.</p>
+
+                </div>
+
+
+                <div class="opportunity-grid">
+
+                    <div class="opportunity">
+
+                        <span class="tag">High Match</span>
+
+                        <h2>Junior Software Engineer</h2>
+
+                        <p>Microsoft</p>
+
+                        <p>📍 Hyderabad</p>
+
+                        <button>View Job</button>
+
+                    </div>
+
+
+                    <div class="opportunity">
+
+                        <span class="tag">92% Match</span>
+
+                        <h2>Frontend Developer</h2>
+
+                        <p>Amazon</p>
+
+                        <p>📍 Bangalore</p>
+
+                        <button>View Job</button>
+
+                    </div>
+
+
+                    <div class="opportunity">
+
+                        <span class="tag">88% Match</span>
+
+                        <h2>AI Engineer</h2>
+
+                        <p>Google</p>
+
+                        <p>📍 Bangalore</p>
+
+                        <button>View Job</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESUME BUILDER -->
+            <section id="resume" class="page">
+
+                <div class="page-title">
+
+                    <h1>Resume Builder</h1>
+
+                    <p>Create your professional resume.</p>
+
+                </div>
+
+
+                <div class="resume-builder">
+
+                    <input
+                        id="resumeName"
+                        placeholder="Your Name"
+                    >
+
+                    <input
+                        id="resumeEmail"
+                        placeholder="Email"
+                    >
+
+                    <input
+                        id="resumeSkills"
+                        placeholder="Skills (Python, React, SQL...)"
+                    >
+
+                    <textarea
+                        id="resumeAbout"
+                        placeholder="About yourself..."
+                    ></textarea>
+
+
+                    <button
+                        class="primary-btn"
+                        onclick="generateResume()"
+                    >
+                        Generate Resume
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="resumePreview"
+                    class="resume-preview"
+                >
+
+                </div>
+
+            </section>
+
+
+            <!-- MENTORSHIP -->
+            <section id="mentorship" class="page">
+
+                <div class="page-title">
+
+                    <h1>Mentorship</h1>
+
+                    <p>Connect with experienced professionals.</p>
+
+                </div>
+
+
+                <div class="mentor-card">
+
+                    👨🏻‍💻
+
+                    <div>
+
+                        <h2>Rahul Sharma</h2>
+
+                        <p>Senior Software Engineer</p>
+
+                        <p>
+                            8+ years experience in software development.
+                        </p>
+
+                        <button>Connect</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <footer>
+
+        © 2026 CareerLaunch — Your Future, Our Guidance
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
